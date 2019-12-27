@@ -1,4 +1,4 @@
-package cn.itcast.utils;
+package cn.itcast.domain;
 
 import org.springframework.core.convert.converter.Converter;
 

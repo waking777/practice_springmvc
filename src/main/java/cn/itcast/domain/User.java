@@ -1,6 +1,5 @@
 package cn.itcast.domain;
 
-import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,16 +7,27 @@ import java.util.Date;
 public class User implements Serializable {
 
     private String username;
-    private Integer age;
+    private String password;
 
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", age=" + age +
                 ", date=" + date +
                 '}';
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private Integer age;
 
     public Date getDate() {
         return date;
