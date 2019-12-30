@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -125,4 +126,26 @@ public class UserController {
 
         return "success";
     }
+
+    @RequestMapping("/fileupload2")
+    public String fileupload2(HttpServletRequest request, MultipartFile upload) throws Exception {
+        System.out.println("springmvc文件上传");
+        //上传的位置
+        String path = request.getSession().getServletContext().getRealPath("/uploads");
+        //该路径是否存在
+        File file = new File(path);
+        if (!file.exists()) {
+            //不存在则创建改文件夹
+            file.mkdirs();
+        }
+        //获取上传文件的名称
+        String filename = upload.getOriginalFilename();
+        //吧文件名称设置为唯一值
+        String uuid = UUID.randomUUID().toString().replace("-", "");
+        filename = uuid + "_" + filename;
+        //完成文件上传
+        upload.transferTo(new File(path, filename));
+        return "success";
+    }
+
 }
