@@ -12,5 +12,7 @@
     <a href="hello1/test">入门程序   test</a>
 
     <a href="user/testException">异常测试</a>
+
+    <a href="user/testInterceptor">拦截器</a>
 </body>
 </html>

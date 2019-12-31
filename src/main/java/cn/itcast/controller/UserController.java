@@ -166,4 +166,12 @@ public class UserController {
         return "success";
     }
 
+
+    @RequestMapping("/testInterceptor")
+    public String testInterceptor(){
+        System.out.println("testInterceptor方法执行了..");
+
+        return "success";
+    }
+
 }
