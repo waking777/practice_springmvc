@@ -33,6 +33,6 @@ public class SysExceptionResolver implements HandlerExceptionResolver{
         mv.addObject("errorMsg",e.getMessage());
         mv.setViewName("error");
 
-        return null;
+        return mv;
     }
 }
